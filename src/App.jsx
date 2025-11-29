@@ -100,60 +100,63 @@ export default function EdoRestaurant() {
           backdropFilter: scrollY > 100 ? 'blur(20px)' : 'none'
         }}
       >
-        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          {/* Logo and Badges */}
-          <div className="flex items-center gap-4">
-            <motion.img
-              src="/edo-logo.svg"
-              alt="EDŌ Restaurant"
-              className="h-12 md:h-14 w-auto"
-              whileHover={{ scale: 1.15 }}
-              transition={{ duration: 0.3 }}
-            />
-            <div className="hidden sm:flex items-center gap-2">
-              <img src="/edo-michelin.png" alt="Michelin Bib Gourmand" className="h-8 md:h-12 w-auto" />
-              <img src="/edo-best-of.png" alt="Best of Belfast" className="h-8 md:h-10 w-auto" />
+        <div className="max-w-7xl mx-auto px-4 md:px-6 py-3 md:py-4">
+          <div className="flex items-center justify-between">
+            {/* Logo and Badges */}
+            <div className="flex items-center gap-2 md:gap-4">
+              <motion.img
+                src="/edo-logo.svg"
+                alt="EDŌ Restaurant"
+                className="h-10 md:h-14 w-auto"
+                whileHover={{ scale: 1.15 }}
+                transition={{ duration: 0.3 }}
+              />
+              <div className="flex items-center gap-1.5 md:gap-2">
+                <img src="/edo-michelin.png" alt="Michelin Bib Gourmand" className="h-7 md:h-12 w-auto" />
+                <img src="/edo-best-of.png" alt="Best of Belfast" className="h-6 md:h-10 w-auto" />
+              </div>
             </div>
-          </div>
 
-          <button
-            onClick={() => setMenuOpen(!menuOpen)}
-            className="md:hidden"
-          >
-            {menuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
+            <button
+              onClick={() => setMenuOpen(!menuOpen)}
+              className="md:hidden p-2 -mr-2"
+              aria-label="Menu"
+            >
+              {menuOpen ? <X className="w-7 h-7" /> : <Menu className="w-7 h-7" />}
+            </button>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-6">
-            <div className="flex gap-6 text-sm tracking-wide">
-              {['story', 'experience', 'menu', 'visit'].map((section) => (
-                <motion.button
-                  key={section}
-                  onClick={() => scrollToSection(section)}
-                  className="hover:text-amber-500 transition-colors duration-300 capitalize"
+            {/* Desktop Navigation */}
+            <div className="hidden md:flex items-center gap-6">
+              <div className="flex gap-6 text-sm tracking-wide">
+                {['story', 'experience', 'menu', 'visit'].map((section) => (
+                  <motion.button
+                    key={section}
+                    onClick={() => scrollToSection(section)}
+                    className="hover:text-amber-500 transition-colors duration-300 capitalize"
+                    whileHover={{ y: -2 }}
+                  >
+                    {section}
+                  </motion.button>
+                ))}
+                <motion.a
+                  href="https://360spaces.co.uk/EDO_Restaurant/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-amber-500 transition-colors duration-300 flex items-center gap-1"
                   whileHover={{ y: -2 }}
                 >
-                  {section}
-                </motion.button>
-              ))}
-              <motion.a
-                href="https://360spaces.co.uk/EDO_Restaurant/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-amber-500 transition-colors duration-300 flex items-center gap-1"
-                whileHover={{ y: -2 }}
+                  <Eye className="w-4 h-4" />
+                  Virtual Tour
+                </motion.a>
+              </div>
+              <motion.button
+                className="bg-amber-600 hover:bg-amber-500 text-zinc-950 px-6 py-2 text-sm font-medium tracking-wide transition-all duration-300"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
               >
-                <Eye className="w-4 h-4" />
-                Virtual Tour
-              </motion.a>
+                Need a Table?
+              </motion.button>
             </div>
-            <motion.button
-              className="bg-amber-600 hover:bg-amber-500 text-zinc-950 px-6 py-2 text-sm font-medium tracking-wide transition-all duration-300"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Need a Table?
-            </motion.button>
           </div>
         </div>
       </motion.nav>
@@ -267,41 +270,41 @@ export default function EdoRestaurant() {
           </video>
         </motion.div>
         
-        <div className="relative z-20 text-center px-6">
-          <motion.div 
+        <div className="relative z-20 text-center px-4 md:px-6">
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.8 }}
-            className="flex items-center justify-center gap-3 mb-6"
+            className="flex items-center justify-center gap-2 md:gap-3 mb-4 md:mb-6"
           >
-            <Award className="w-5 h-5 text-amber-500" />
-            <span className="text-sm tracking-widest text-amber-500">MICHELIN BIB GOURMAND</span>
+            <Award className="w-4 h-4 md:w-5 md:h-5 text-amber-500" />
+            <span className="text-xs md:text-sm tracking-widest text-amber-500">MICHELIN BIB GOURMAND</span>
           </motion.div>
-          
+
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 1, ease: [0.22, 1, 0.36, 1] }}
-            className="text-7xl md:text-9xl font-light tracking-[0.2em] mb-6"
+            className="text-6xl sm:text-7xl md:text-9xl font-light tracking-[0.2em] mb-4 md:mb-6"
             style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}
           >
             EDŌ
           </motion.h1>
-          
-          <motion.p 
+
+          <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.7, duration: 0.8 }}
-            className="text-xl md:text-2xl font-light tracking-wide text-zinc-300 mb-12 max-w-2xl mx-auto"
+            className="text-lg sm:text-xl md:text-2xl font-light tracking-wide text-zinc-300 mb-8 md:mb-12 max-w-2xl mx-auto px-4"
           >
             Contemporary European dining in the heart of Belfast
           </motion.p>
-          
-          <motion.button 
+
+          <motion.button
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.9, duration: 0.8 }}
-            className="bg-amber-600 hover:bg-amber-500 text-zinc-950 px-10 py-4 text-base font-medium tracking-wide transition-all duration-300"
+            className="bg-amber-600 hover:bg-amber-500 text-zinc-950 px-8 sm:px-10 py-3 sm:py-4 text-sm sm:text-base font-medium tracking-wide transition-all duration-300 shadow-lg"
             whileHover={{ scale: 1.05, boxShadow: '0 10px 40px rgba(217, 119, 6, 0.3)' }}
             whileTap={{ scale: 0.95 }}
           >
@@ -327,14 +330,14 @@ export default function EdoRestaurant() {
       </section>
 
       {/* Story Section */}
-      <section id="story" className="min-h-screen flex items-center py-24 px-6">
-        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+      <section id="story" className="min-h-screen flex items-center py-16 md:py-24 px-4 md:px-6">
+        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-8 md:gap-16 items-center">
           <AnimatedSection>
-            <span className="text-amber-500 text-sm tracking-widest uppercase mb-4 block">The Story</span>
-            <h2 className="text-5xl md:text-6xl font-light mb-6 leading-tight">
+            <span className="text-amber-500 text-xs md:text-sm tracking-widest uppercase mb-3 md:mb-4 block">The Story</span>
+            <h2 className="text-4xl sm:text-5xl md:text-6xl font-light mb-4 md:mb-6 leading-tight">
               Passion forged<br />in fire
             </h2>
-            <div className="space-y-4 text-zinc-400 text-lg leading-relaxed">
+            <div className="space-y-3 md:space-y-4 text-zinc-400 text-base md:text-lg leading-relaxed">
               <p>
                 Founded by Head Chef Jonny Elliott, EDŌ brings decades of European culinary experience to Belfast's vibrant dining scene.
               </p>
@@ -346,9 +349,9 @@ export default function EdoRestaurant() {
               </p>
             </div>
           </AnimatedSection>
-          
+
           <AnimatedSection>
-            <div className="relative h-[600px] overflow-hidden rounded-sm group">
+            <div className="relative h-[400px] sm:h-[500px] md:h-[600px] overflow-hidden rounded-sm group">
               <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-transparent z-10"></div>
               <motion.img
                 src="/edo-dish.png"
@@ -363,8 +366,8 @@ export default function EdoRestaurant() {
       </section>
 
       {/* Bertha Oven Feature */}
-      <section id="bertha" className="relative min-h-screen flex items-center overflow-hidden py-24">
-        <div className="absolute inset-0 bg-gradient-to-r from-zinc-950 via-zinc-950/90 to-transparent z-10"></div>
+      <section id="bertha" className="relative min-h-screen flex items-center overflow-hidden py-16 md:py-24">
+        <div className="absolute inset-0 bg-gradient-to-r from-zinc-950 via-zinc-950/95 to-zinc-950/70 md:to-transparent z-10"></div>
         <motion.div
           className="absolute inset-0 bg-cover bg-center"
           style={{
@@ -372,17 +375,17 @@ export default function EdoRestaurant() {
             scale: useTransform(scrollYProgress, [0.2, 0.5], [1, 1.15])
           }}
         />
-        
-        <div className="relative z-20 max-w-7xl mx-auto px-6">
+
+        <div className="relative z-20 max-w-7xl mx-auto px-4 md:px-6">
           <AnimatedSection className="max-w-2xl">
-            <Flame className="w-12 h-12 text-amber-500 mb-6" />
-            <h2 className="text-5xl md:text-7xl font-light mb-6 leading-tight">
+            <Flame className="w-10 h-10 md:w-12 md:h-12 text-amber-500 mb-4 md:mb-6" />
+            <h2 className="text-4xl sm:text-5xl md:text-7xl font-light mb-4 md:mb-6 leading-tight">
               The Bertha<br />Oven
             </h2>
-            <p className="text-xl text-zinc-300 leading-relaxed mb-8">
+            <p className="text-lg sm:text-xl text-zinc-300 leading-relaxed mb-4 md:mb-8">
               One of only a handful in Northern Ireland, our wood-fired Bertha oven burns apple and pear wood, creating depth and character that simply can't be replicated.
             </p>
-            <p className="text-lg text-zinc-400 leading-relaxed">
+            <p className="text-base md:text-lg text-zinc-400 leading-relaxed">
               From charred octopus to perfectly blistered steaks, every flame-kissed dish carries the signature of true craft.
             </p>
           </AnimatedSection>
@@ -390,14 +393,14 @@ export default function EdoRestaurant() {
       </section>
 
       {/* Experience Section */}
-      <section id="experience" className="py-24 px-6 bg-zinc-900">
+      <section id="experience" className="py-16 md:py-24 px-4 md:px-6 bg-zinc-900">
         <div className="max-w-7xl mx-auto">
-          <AnimatedSection className="text-center mb-16">
-            <span className="text-amber-500 text-sm tracking-widest uppercase mb-4 block">The Experience</span>
-            <h2 className="text-5xl md:text-6xl font-light">Tapas. Theatre. Taste.</h2>
+          <AnimatedSection className="text-center mb-12 md:mb-16">
+            <span className="text-amber-500 text-xs md:text-sm tracking-widest uppercase mb-3 md:mb-4 block">The Experience</span>
+            <h2 className="text-4xl sm:text-5xl md:text-6xl font-light">Tapas. Theatre. Taste.</h2>
           </AnimatedSection>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
             {[
               {
                 img: '/dish1.jpeg',
@@ -417,8 +420,8 @@ export default function EdoRestaurant() {
             ].map((item, i) => (
               <AnimatedSection key={i}>
                 <div className="group cursor-pointer">
-                  <div className="relative h-80 overflow-hidden rounded-sm mb-6">
-                    <motion.img 
+                  <div className="relative h-64 sm:h-72 md:h-80 overflow-hidden rounded-sm mb-4 md:mb-6">
+                    <motion.img
                       src={item.img}
                       alt={item.title}
                       className="w-full h-full object-cover"
@@ -427,35 +430,35 @@ export default function EdoRestaurant() {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-transparent opacity-60"></div>
                   </div>
-                  <h3 className="text-2xl font-light mb-3">{item.title}</h3>
-                  <p className="text-zinc-400 leading-relaxed">{item.desc}</p>
+                  <h3 className="text-xl md:text-2xl font-light mb-2 md:mb-3">{item.title}</h3>
+                  <p className="text-zinc-400 text-sm md:text-base leading-relaxed">{item.desc}</p>
                 </div>
               </AnimatedSection>
             ))}
           </div>
 
           {/* Virtual Tour Section */}
-          <AnimatedSection className="mt-16">
+          <AnimatedSection className="mt-12 md:mt-16">
             <div className="relative overflow-hidden rounded-sm bg-gradient-to-r from-amber-900/20 to-zinc-800/20 border border-amber-900/30">
-              <div className="grid md:grid-cols-2 gap-8 items-center p-8 md:p-12">
-                <div>
-                  <Eye className="w-10 h-10 text-amber-500 mb-4" />
-                  <h3 className="text-3xl md:text-4xl font-light mb-4">Explore EDŌ Virtually</h3>
-                  <p className="text-zinc-400 text-lg leading-relaxed mb-6">
+              <div className="grid md:grid-cols-2 gap-6 md:gap-8 items-center p-6 sm:p-8 md:p-12">
+                <div className="order-2 md:order-1">
+                  <Eye className="w-8 h-8 md:w-10 md:h-10 text-amber-500 mb-3 md:mb-4" />
+                  <h3 className="text-2xl sm:text-3xl md:text-4xl font-light mb-3 md:mb-4">Explore EDŌ Virtually</h3>
+                  <p className="text-zinc-400 text-base md:text-lg leading-relaxed mb-5 md:mb-6">
                     Take a 360° tour of our restaurant. Experience the atmosphere, peek into the open kitchen, and find your perfect spot before you visit.
                   </p>
                   <motion.a
                     href="https://360spaces.co.uk/EDO_Restaurant/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-block border border-amber-500 text-amber-500 hover:bg-amber-500 hover:text-zinc-950 px-8 py-3 text-sm font-medium tracking-wide transition-all duration-300"
+                    className="inline-block border-2 border-amber-500 text-amber-500 hover:bg-amber-500 hover:text-zinc-950 px-6 sm:px-8 py-3 text-sm md:text-base font-medium tracking-wide transition-all duration-300 shadow-lg"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
                     Launch Virtual Tour
                   </motion.a>
                 </div>
-                <div className="relative h-64 md:h-80 overflow-hidden rounded-sm">
+                <div className="relative h-56 sm:h-64 md:h-80 overflow-hidden rounded-sm order-1 md:order-2">
                   <motion.img
                     src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&h=600&fit=crop&q=80"
                     alt="Restaurant interior"
@@ -465,7 +468,7 @@ export default function EdoRestaurant() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/60 via-transparent to-transparent"></div>
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <Eye className="w-16 h-16 text-white opacity-80" />
+                    <Eye className="w-12 h-12 md:w-16 md:h-16 text-white opacity-80" />
                   </div>
                 </div>
               </div>
@@ -475,9 +478,9 @@ export default function EdoRestaurant() {
       </section>
 
       {/* Food Gallery with Zoom Effect */}
-      <section className="py-24 px-6">
+      <section className="py-16 md:py-24 px-4 md:px-6">
         <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid sm:grid-cols-2 gap-4 md:gap-8">
             {[
               '/fresh-fish.png',
               '/dish2.jpeg',
@@ -485,8 +488,8 @@ export default function EdoRestaurant() {
               '/Malachy.png'
             ].map((src, i) => (
               <AnimatedSection key={i}>
-                <div className="relative h-96 overflow-hidden rounded-sm group cursor-pointer">
-                  <motion.img 
+                <div className="relative h-72 sm:h-80 md:h-96 overflow-hidden rounded-sm group cursor-pointer">
+                  <motion.img
                     src={src}
                     alt={`Dish ${i + 1}`}
                     className="w-full h-full object-cover"
@@ -502,11 +505,11 @@ export default function EdoRestaurant() {
       </section>
 
       {/* Menu Highlight */}
-      <section id="menu" className="py-24 px-6 bg-zinc-900">
+      <section id="menu" className="py-16 md:py-24 px-4 md:px-6 bg-zinc-900">
         <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-16 items-center mb-24">
-            <AnimatedSection className="relative h-[500px] overflow-hidden rounded-sm order-2 md:order-1 group">
-              <motion.img 
+          <div className="grid md:grid-cols-2 gap-8 md:gap-16 items-center mb-16 md:mb-24">
+            <AnimatedSection className="relative h-[350px] sm:h-[450px] md:h-[500px] overflow-hidden rounded-sm order-2 md:order-1 group">
+              <motion.img
                 src="https://images.unsplash.com/photo-1574894709920-11b28e7367e3?w=800&h=800&fit=crop&q=80"
                 alt="Signature dish"
                 className="w-full h-full object-cover"
@@ -514,17 +517,17 @@ export default function EdoRestaurant() {
                 transition={{ duration: 0.6 }}
               />
             </AnimatedSection>
-            
+
             <AnimatedSection className="order-1 md:order-2">
-              <span className="text-amber-500 text-sm tracking-widest uppercase mb-4 block">The Menu</span>
-              <h2 className="text-5xl font-light mb-6 leading-tight">
+              <span className="text-amber-500 text-xs md:text-sm tracking-widest uppercase mb-3 md:mb-4 block">The Menu</span>
+              <h2 className="text-4xl sm:text-5xl font-light mb-4 md:mb-6 leading-tight">
                 European soul,<br />local heart
               </h2>
-              <p className="text-zinc-400 text-lg leading-relaxed mb-8">
+              <p className="text-zinc-400 text-base md:text-lg leading-relaxed mb-6 md:mb-8">
                 Our menu celebrates the finest European traditions while championing the incredible produce from our doorstep. Every dish honours both heritage and locality.
               </p>
-              <motion.button 
-                className="border border-amber-500 text-amber-500 hover:bg-amber-500 hover:text-zinc-950 px-8 py-3 text-sm font-medium tracking-wide transition-all duration-300"
+              <motion.button
+                className="border-2 border-amber-500 text-amber-500 hover:bg-amber-500 hover:text-zinc-950 px-6 sm:px-8 py-3 text-sm md:text-base font-medium tracking-wide transition-all duration-300 shadow-lg"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -534,15 +537,15 @@ export default function EdoRestaurant() {
           </div>
 
           {/* Sample Dishes - Staggered Animation */}
-          <StaggerContainer className="grid md:grid-cols-3 gap-8">
+          <StaggerContainer className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
             {[
               { name: 'Pil Pil Prawns', desc: 'Olive oil, chilli, garlic, sourdough' },
               { name: 'Beef Cheeks', desc: 'Red wine, root vegetables, horseradish cream' },
               { name: 'Charred Octopus', desc: 'Paprika oil, crispy potatoes, lemon aioli' }
             ].map((dish, i) => (
-              <div key={i} className="border-t border-zinc-800 pt-6">
-                <h3 className="text-xl font-light mb-2">{dish.name}</h3>
-                <p className="text-zinc-500 text-sm tracking-wide">{dish.desc}</p>
+              <div key={i} className="border-t border-zinc-800 pt-4 md:pt-6">
+                <h3 className="text-lg md:text-xl font-light mb-1.5 md:mb-2">{dish.name}</h3>
+                <p className="text-zinc-500 text-xs md:text-sm tracking-wide">{dish.desc}</p>
               </div>
             ))}
           </StaggerContainer>
@@ -550,34 +553,34 @@ export default function EdoRestaurant() {
       </section>
 
       {/* Visit Section */}
-      <section id="visit" className="py-24 px-6">
+      <section id="visit" className="py-16 md:py-24 px-4 md:px-6">
         <div className="max-w-7xl mx-auto">
-          <AnimatedSection className="text-center mb-16">
-            <span className="text-amber-500 text-sm tracking-widest uppercase mb-4 block">Visit Us</span>
-            <h2 className="text-5xl md:text-6xl font-light mb-6">Heart of Belfast</h2>
+          <AnimatedSection className="text-center mb-12 md:mb-16">
+            <span className="text-amber-500 text-xs md:text-sm tracking-widest uppercase mb-3 md:mb-4 block">Visit Us</span>
+            <h2 className="text-4xl sm:text-5xl md:text-6xl font-light mb-4 md:mb-6">Heart of Belfast</h2>
           </AnimatedSection>
 
-          <StaggerContainer className="grid md:grid-cols-3 gap-12 mb-16">
+          <StaggerContainer className="grid sm:grid-cols-3 gap-8 md:gap-12 mb-12 md:mb-16">
             <div className="text-center">
-              <MapPin className="w-8 h-8 text-amber-500 mx-auto mb-4" />
-              <h3 className="text-lg font-medium mb-2">Location</h3>
-              <p className="text-zinc-400">Unit 2 Capital House<br />3 Upper Queen Street<br />Belfast BT1 6FB</p>
+              <MapPin className="w-7 h-7 md:w-8 md:h-8 text-amber-500 mx-auto mb-3 md:mb-4" />
+              <h3 className="text-base md:text-lg font-medium mb-2">Location</h3>
+              <p className="text-zinc-400 text-sm md:text-base">Unit 2 Capital House<br />3 Upper Queen Street<br />Belfast BT1 6FB</p>
             </div>
             <div className="text-center">
-              <Clock className="w-8 h-8 text-amber-500 mx-auto mb-4" />
-              <h3 className="text-lg font-medium mb-2">Hours</h3>
-              <p className="text-zinc-400">Tuesday - Saturday<br />12:00 - Late</p>
+              <Clock className="w-7 h-7 md:w-8 md:h-8 text-amber-500 mx-auto mb-3 md:mb-4" />
+              <h3 className="text-base md:text-lg font-medium mb-2">Hours</h3>
+              <p className="text-zinc-400 text-sm md:text-base">Tuesday - Saturday<br />12:00 - Late</p>
             </div>
             <div className="text-center">
-              <Users className="w-8 h-8 text-amber-500 mx-auto mb-4" />
-              <h3 className="text-lg font-medium mb-2">Reservations</h3>
-              <p className="text-zinc-400">+44 28 9031 3054<br />Book online 24/7</p>
+              <Users className="w-7 h-7 md:w-8 md:h-8 text-amber-500 mx-auto mb-3 md:mb-4" />
+              <h3 className="text-base md:text-lg font-medium mb-2">Reservations</h3>
+              <p className="text-zinc-400 text-sm md:text-base">+44 28 9031 3054<br />Book online 24/7</p>
             </div>
           </StaggerContainer>
 
           <AnimatedSection className="text-center">
-            <motion.button 
-              className="bg-amber-600 hover:bg-amber-500 text-zinc-950 px-12 py-4 text-base font-medium tracking-wide transition-all duration-300"
+            <motion.button
+              className="bg-amber-600 hover:bg-amber-500 text-zinc-950 px-10 sm:px-12 py-3 sm:py-4 text-sm sm:text-base font-medium tracking-wide transition-all duration-300 shadow-lg"
               whileHover={{ scale: 1.05, boxShadow: '0 10px 40px rgba(217, 119, 6, 0.3)' }}
               whileTap={{ scale: 0.95 }}
             >
@@ -588,15 +591,15 @@ export default function EdoRestaurant() {
       </section>
 
       {/* Footer */}
-      <footer className="py-12 px-6 border-t border-zinc-800 bg-zinc-900">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
-          <img src="/edo-logo.svg" alt="EDŌ Restaurant" className="h-12 w-auto" />
-          <div className="flex gap-8 text-sm text-zinc-400">
+      <footer className="py-10 md:py-12 px-4 md:px-6 border-t border-zinc-800 bg-zinc-900">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-5 md:gap-6">
+          <img src="/edo-logo.svg" alt="EDŌ Restaurant" className="h-10 md:h-12 w-auto" />
+          <div className="flex gap-6 md:gap-8 text-sm text-zinc-400">
             <motion.a href="#" className="hover:text-amber-500 transition" whileHover={{ y: -2 }}>Instagram</motion.a>
             <motion.a href="#" className="hover:text-amber-500 transition" whileHover={{ y: -2 }}>Facebook</motion.a>
             <motion.a href="#" className="hover:text-amber-500 transition" whileHover={{ y: -2 }}>Contact</motion.a>
           </div>
-          <div className="text-sm text-zinc-500">
+          <div className="text-xs md:text-sm text-zinc-500 text-center">
             © 2025 EDŌ Belfast. All rights reserved.
           </div>
         </div>
