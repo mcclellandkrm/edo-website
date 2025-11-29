@@ -107,11 +107,11 @@ export default function EdoRestaurant() {
               src="/edo-logo.svg"
               alt="EDŌ Restaurant"
               className="h-12 md:h-14 w-auto"
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ scale: 1.15 }}
               transition={{ duration: 0.3 }}
             />
             <div className="hidden sm:flex items-center gap-2">
-              <img src="/edo-michelin.png" alt="Michelin Bib Gourmand" className="h-8 md:h-10 w-auto" />
+              <img src="/edo-michelin.png" alt="Michelin Bib Gourmand" className="h-8 md:h-12 w-auto" />
               <img src="/edo-best-of.png" alt="Best of Belfast" className="h-8 md:h-10 w-auto" />
             </div>
           </div>
@@ -278,11 +278,12 @@ export default function EdoRestaurant() {
             <span className="text-sm tracking-widest text-amber-500">MICHELIN BIB GOURMAND</span>
           </motion.div>
           
-          <motion.h1 
+          <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 1, ease: [0.22, 1, 0.36, 1] }}
-            className="text-7xl md:text-9xl font-extralight tracking-wider mb-6"
+            className="text-7xl md:text-9xl font-light tracking-[0.2em] mb-6"
+            style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}
           >
             EDŌ
           </motion.h1>
