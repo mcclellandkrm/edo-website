@@ -350,8 +350,8 @@ export default function EdoRestaurant() {
           <AnimatedSection>
             <div className="relative h-[600px] overflow-hidden rounded-sm group">
               <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-transparent z-10"></div>
-              <motion.img 
-                src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=800&h=1000&fit=crop&q=80"
+              <motion.img
+                src="/edo-dish.png"
                 alt="Chef at work"
                 className="w-full h-full object-cover"
                 whileHover={{ scale: 1.1 }}
@@ -365,10 +365,10 @@ export default function EdoRestaurant() {
       {/* Bertha Oven Feature */}
       <section id="bertha" className="relative min-h-screen flex items-center overflow-hidden py-24">
         <div className="absolute inset-0 bg-gradient-to-r from-zinc-950 via-zinc-950/90 to-transparent z-10"></div>
-        <motion.div 
+        <motion.div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: 'url(https://images.unsplash.com/photo-1525351326368-efbb5cb6814d?w=1920&h=1080&fit=crop&q=80)',
+            backgroundImage: 'url(/dark-kitchen-shot.png)',
             scale: useTransform(scrollYProgress, [0.2, 0.5], [1, 1.15])
           }}
         />
@@ -400,17 +400,17 @@ export default function EdoRestaurant() {
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
-                img: 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=600&h=600&fit=crop&q=80',
+                img: '/dish1.jpeg',
                 title: 'Share & Savour',
                 desc: 'European tapas designed for sharing. Three or four dishes per person—the perfect way to explore our menu.'
               },
               {
-                img: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&h=600&fit=crop&q=80',
+                img: '/open-kitchen1.jpeg',
                 title: 'Open Kitchen',
                 desc: 'Watch the brigade move in perfect harmony. Sit at the kitchen counter and feel the energy of service.'
               },
               {
-                img: 'https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=600&h=600&fit=crop&q=80',
+                img: '/pairings1.png',
                 title: 'Curated Pairings',
                 desc: 'From natural wines to signature cocktails, every sip is chosen to complement your journey.'
               }
@@ -479,10 +479,10 @@ export default function EdoRestaurant() {
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-8">
             {[
-              'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=800&h=800&fit=crop&q=80',
-              'https://images.unsplash.com/photo-1544025162-d76694265947?w=800&h=800&fit=crop&q=80',
-              'https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&h=800&fit=crop&q=80',
-              'https://images.unsplash.com/photo-1563379926898-05f4575a45d8?w=800&h=800&fit=crop&q=80'
+              '/fresh-fish.png',
+              '/dish2.jpeg',
+              '/dish3.png',
+              '/Malachy.png'
             ].map((src, i) => (
               <AnimatedSection key={i}>
                 <div className="relative h-96 overflow-hidden rounded-sm group cursor-pointer">
