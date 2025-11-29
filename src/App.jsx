@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, useScroll, useTransform, useInView } from 'framer-motion';
-import { ChevronDown, Award, Flame, Users, MapPin, Clock, Menu, X } from 'lucide-react';
+import { ChevronDown, Award, Flame, Users, MapPin, Clock, Menu, X, Eye } from 'lucide-react';
 
 // Animated section component
 const AnimatedSection = ({ children, className = "" }) => {
@@ -100,45 +100,67 @@ export default function EdoRestaurant() {
           backdropFilter: scrollY > 100 ? 'blur(20px)' : 'none'
         }}
       >
-        <div className="max-w-7xl mx-auto px-6 py-6 flex items-center justify-between">
-          <motion.div 
-            className="text-2xl font-light tracking-widest"
-            whileHover={{ letterSpacing: '0.4em' }}
-            transition={{ duration: 0.3 }}
-          >
-            EDŌ
-          </motion.div>
-          <button 
+        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+          {/* Logo and Badges */}
+          <div className="flex items-center gap-4">
+            <motion.img
+              src="/edo-logo.svg"
+              alt="EDŌ Restaurant"
+              className="h-12 md:h-14 w-auto"
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.3 }}
+            />
+            <div className="hidden sm:flex items-center gap-2">
+              <img src="/edo-michelin.png" alt="Michelin Bib Gourmand" className="h-8 md:h-10 w-auto" />
+              <img src="/edo-best-of.png" alt="Best of Belfast" className="h-8 md:h-10 w-auto" />
+            </div>
+          </div>
+
+          <button
             onClick={() => setMenuOpen(!menuOpen)}
             className="md:hidden"
           >
             {menuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
-          <div className="hidden md:flex gap-8 text-sm tracking-wide">
-            {['story', 'experience', 'menu', 'visit'].map((section) => (
-              <motion.button
-                key={section}
-                onClick={() => scrollToSection(section)}
-                className="hover:text-amber-500 transition-colors duration-300 capitalize"
+
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center gap-6">
+            <div className="flex gap-6 text-sm tracking-wide">
+              {['story', 'experience', 'menu', 'visit'].map((section) => (
+                <motion.button
+                  key={section}
+                  onClick={() => scrollToSection(section)}
+                  className="hover:text-amber-500 transition-colors duration-300 capitalize"
+                  whileHover={{ y: -2 }}
+                >
+                  {section}
+                </motion.button>
+              ))}
+              <motion.a
+                href="https://360spaces.co.uk/EDO_Restaurant/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-amber-500 transition-colors duration-300 flex items-center gap-1"
                 whileHover={{ y: -2 }}
               >
-                {section}
-              </motion.button>
-            ))}
+                <Eye className="w-4 h-4" />
+                Virtual Tour
+              </motion.a>
+            </div>
+            <motion.button
+              className="bg-amber-600 hover:bg-amber-500 text-zinc-950 px-6 py-2 text-sm font-medium tracking-wide transition-all duration-300"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              Need a Table?
+            </motion.button>
           </div>
-          <motion.button 
-            className="hidden md:block bg-amber-600 hover:bg-amber-500 text-zinc-950 px-6 py-2 text-sm font-medium tracking-wide transition-all duration-300"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            Reserve
-          </motion.button>
         </div>
       </motion.nav>
 
       {/* Mobile Menu */}
       {menuOpen && (
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -157,13 +179,25 @@ export default function EdoRestaurant() {
                 {item.label}
               </motion.button>
             ))}
-            <motion.button 
+            <motion.a
+              href="https://360spaces.co.uk/EDO_Restaurant/"
+              target="_blank"
+              rel="noopener noreferrer"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: navItems.length * 0.1 }}
+              className="text-3xl font-light hover:text-amber-500 transition flex items-center justify-center gap-2"
+            >
+              <Eye className="w-8 h-8" />
+              Virtual Tour
+            </motion.a>
+            <motion.button
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: (navItems.length + 1) * 0.1 }}
               className="bg-amber-600 hover:bg-amber-500 text-zinc-950 px-8 py-3 text-base font-medium tracking-wide transition"
             >
-              Reserve
+              Need a Table?
             </motion.button>
           </div>
         </motion.div>
@@ -398,6 +432,44 @@ export default function EdoRestaurant() {
               </AnimatedSection>
             ))}
           </div>
+
+          {/* Virtual Tour Section */}
+          <AnimatedSection className="mt-16">
+            <div className="relative overflow-hidden rounded-sm bg-gradient-to-r from-amber-900/20 to-zinc-800/20 border border-amber-900/30">
+              <div className="grid md:grid-cols-2 gap-8 items-center p-8 md:p-12">
+                <div>
+                  <Eye className="w-10 h-10 text-amber-500 mb-4" />
+                  <h3 className="text-3xl md:text-4xl font-light mb-4">Explore EDŌ Virtually</h3>
+                  <p className="text-zinc-400 text-lg leading-relaxed mb-6">
+                    Take a 360° tour of our restaurant. Experience the atmosphere, peek into the open kitchen, and find your perfect spot before you visit.
+                  </p>
+                  <motion.a
+                    href="https://360spaces.co.uk/EDO_Restaurant/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block border border-amber-500 text-amber-500 hover:bg-amber-500 hover:text-zinc-950 px-8 py-3 text-sm font-medium tracking-wide transition-all duration-300"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    Launch Virtual Tour
+                  </motion.a>
+                </div>
+                <div className="relative h-64 md:h-80 overflow-hidden rounded-sm">
+                  <motion.img
+                    src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&h=600&fit=crop&q=80"
+                    alt="Restaurant interior"
+                    className="w-full h-full object-cover"
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.6 }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/60 via-transparent to-transparent"></div>
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <Eye className="w-16 h-16 text-white opacity-80" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </AnimatedSection>
         </div>
       </section>
 
@@ -517,7 +589,7 @@ export default function EdoRestaurant() {
       {/* Footer */}
       <footer className="py-12 px-6 border-t border-zinc-800 bg-zinc-900">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
-          <div className="text-2xl font-light tracking-widest">EDŌ</div>
+          <img src="/edo-logo.svg" alt="EDŌ Restaurant" className="h-12 w-auto" />
           <div className="flex gap-8 text-sm text-zinc-400">
             <motion.a href="#" className="hover:text-amber-500 transition" whileHover={{ y: -2 }}>Instagram</motion.a>
             <motion.a href="#" className="hover:text-amber-500 transition" whileHover={{ y: -2 }}>Facebook</motion.a>
