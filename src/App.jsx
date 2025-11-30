@@ -420,17 +420,31 @@ export default function EdoRestaurant() {
             ].map((item, i) => (
               <AnimatedSection key={i}>
                 <div className="group cursor-pointer">
-                  <div className="relative h-64 sm:h-72 md:h-80 overflow-hidden rounded-sm mb-4 md:mb-6">
-                    <motion.img
-                      src={item.img}
-                      alt={item.title}
-                      className="w-full h-full object-cover"
-                      whileHover={{ scale: 1.1 }}
-                      transition={{ duration: 0.6 }}
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-transparent opacity-60"></div>
-                  </div>
-                  <h3 className="text-xl md:text-2xl font-light mb-2 md:mb-3">{item.title}</h3>
+                  <motion.div
+                    className="relative h-64 sm:h-72 md:h-80 overflow-hidden rounded-sm mb-4 md:mb-6"
+                    whileHover={{ y: -8 }}
+                    transition={{ duration: 0.4, ease: 'easeOut' }}
+                  >
+                    {/* Subtle glow effect */}
+                    <div className="absolute -inset-0.5 bg-gradient-to-r from-amber-600/20 via-amber-500/30 to-amber-600/20 rounded-sm opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-500"></div>
+
+                    <div className="relative h-full overflow-hidden rounded-sm">
+                      <motion.img
+                        src={item.img}
+                        alt={item.title}
+                        className="w-full h-full object-cover"
+                        whileHover={{ scale: 1.15 }}
+                        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-500"></div>
+
+                      {/* Subtle inner glow on hover */}
+                      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                        <div className="absolute inset-0 bg-gradient-to-t from-amber-900/20 via-transparent to-transparent"></div>
+                      </div>
+                    </div>
+                  </motion.div>
+                  <h3 className="text-xl md:text-2xl font-light mb-2 md:mb-3 group-hover:text-amber-500 transition-colors duration-300">{item.title}</h3>
                   <p className="text-zinc-400 text-sm md:text-base leading-relaxed">{item.desc}</p>
                 </div>
               </AnimatedSection>
