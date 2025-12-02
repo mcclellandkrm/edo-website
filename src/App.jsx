@@ -395,22 +395,27 @@ export default function EdoRestaurant() {
             <h2 className="text-4xl sm:text-5xl md:text-6xl font-light">Tapas. Theatre. Taste.</h2>
           </AnimatedSection>
 
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
             {[
               {
-                img: '/dish1.jpeg',
+                img: '/edo-belfast--16.jpg',
                 title: 'Share & Savour',
                 desc: 'European tapas designed for sharing. Three or four dishes per person—the perfect way to explore our menu.'
               },
               {
-                img: '/open-kitchen1.jpeg',
+                img: '/edo-belfast--7.jpg',
                 title: 'Open Kitchen',
                 desc: 'Watch the brigade move in perfect harmony. Sit at the kitchen counter and feel the energy of service.'
               },
               {
-                img: '/pairings1.png',
+                img: '/edo-belfast--23.jpg',
                 title: 'Curated Pairings',
                 desc: 'From natural wines to signature cocktails, every sip is chosen to complement your journey.'
+              },
+              {
+                img: '/edo-belfast--18.jpg',
+                title: 'Fresh Ingredients',
+                desc: 'Locally sourced, seasonal produce carefully selected to showcase the best of Northern Ireland.'
               }
             ].map((item, i) => (
               <AnimatedSection key={i}>
@@ -519,7 +524,7 @@ export default function EdoRestaurant() {
           <div className="grid md:grid-cols-2 gap-8 md:gap-16 items-center mb-16 md:mb-24">
             <AnimatedSection className="relative h-[350px] sm:h-[450px] md:h-[500px] overflow-hidden rounded-sm order-2 md:order-1 group">
               <motion.img
-                src="https://images.unsplash.com/photo-1574894709920-11b28e7367e3?w=800&h=800&fit=crop&q=80"
+                src="/edo-belfast--22.jpg"
                 alt="Signature dish"
                 className="w-full h-full object-cover"
                 whileHover={{ scale: 1.1 }}
