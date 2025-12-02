@@ -253,21 +253,16 @@ export default function EdoRestaurant() {
           style={{ opacity: heroOpacity }}
         />
         
-        {/* Video Background - Replace src with actual EDŌ footage */}
-        <motion.div 
+        {/* Hero Background Image */}
+        <motion.div
           className="absolute inset-0"
           style={{ scale: heroScale }}
         >
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
+          <img
+            src="/edo-belfast--20.jpg"
+            alt="EDŌ Restaurant Belfast"
             className="w-full h-full object-cover"
-            poster="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1920&h=1080&fit=crop&q=80"
-          >
-            <source src="https://assets.mixkit.co/videos/preview/mixkit-chef-cooking-in-a-restaurant-kitchen-43347-large.mp4" type="video/mp4" />
-          </video>
+          />
         </motion.div>
         
         <div className="relative z-20 text-center px-4 md:px-6">
