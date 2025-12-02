@@ -259,7 +259,7 @@ export default function EdoRestaurant() {
           style={{ scale: heroScale }}
         >
           <img
-            src="/edo-belfast--20.jpg"
+            src="/edo-belfast--25.jpg"
             alt="EDŌ Restaurant Belfast"
             className="w-full h-full object-cover"
           />
